@@ -1,13 +1,19 @@
 package com.MakoLab.Unity.LaVision.Models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "actualAddress")
 public class AddressActual {
+	@Id
 	private String ID;
 	private String countryID;
 	private String countryName;
 
+	public AddressActual(){
+		
+	}
+	
 	public AddressActual(Address address) {
 		this.ID = "666";
 		this.countryID = address.getID();

@@ -41,7 +41,7 @@ public class AddressEndpoint {
 	public ResponseEntity<Address> addNewCountryAddress(@RequestBody AddressAddRequest addressAddRequeste){
 		Address address = new Address(addressAddRequeste);
 		
-		return new ResponseEntity<Address>(address, HttpStatus.CREATED);
+		return new ResponseEntity<Address>(addressService.addNewCountryAddress(address), HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value = "/all", method = RequestMethod.GET)

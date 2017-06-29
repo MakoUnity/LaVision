@@ -30,7 +30,7 @@ public class AddressServiceImpl implements AddressService {
 	public Address getActualCountryAddress() {
 		AddressActual addressActual = actualAddressRepository.findOne("666");
 		
-		return addressRepository.findOne(addressActual.getID());
+		return addressRepository.findOne(addressActual.getCountryID());
 	}
 
 	@Override

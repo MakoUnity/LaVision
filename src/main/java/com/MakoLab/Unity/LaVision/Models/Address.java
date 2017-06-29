@@ -16,6 +16,10 @@ public class Address {
 	private String phoneNumber;
 	private String faxNumber;
 	private String mailAddress;
+	
+	public Address(){
+		
+	}
 
 	public Address(AddressAddRequest addressAddRequest) {
 		this.ID = UUID.randomUUID().toString();
