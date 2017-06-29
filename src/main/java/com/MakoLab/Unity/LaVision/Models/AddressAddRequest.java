@@ -1,14 +1,6 @@
 package com.MakoLab.Unity.LaVision.Models;
 
-import java.util.UUID;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document(collection = "availableAddresses")
-public class Address {
-	@Id
-	private String ID;
+public class AddressAddRequest {
 	private String country;
 	private String locationName;
 	private String locationAddress;
@@ -16,25 +8,6 @@ public class Address {
 	private String phoneNumber;
 	private String faxNumber;
 	private String mailAddress;
-
-	public Address(AddressAddRequest addressAddRequest) {
-		this.ID = UUID.randomUUID().toString();
-		this.country = addressAddRequest.getCountry();
-		this.locationName = addressAddRequest.getLocationName();
-		this.locationAddress = addressAddRequest.getLocationAddress();
-		this.postAddress = addressAddRequest.getPostAddress();
-		this.phoneNumber = addressAddRequest.getPhoneNumber();
-		this.faxNumber = addressAddRequest.getFaxNumber();
-		this.mailAddress = addressAddRequest.getMailAddress();
-	}
-	
-	public String getID() {
-		return ID;
-	}
-
-	public void setID(String iD) {
-		ID = iD;
-	}
 
 	public String getCountry() {
 		return country;
@@ -90,12 +63,5 @@ public class Address {
 
 	public void setMailAddress(String mailAddress) {
 		this.mailAddress = mailAddress;
-	}
-
-	@Override
-	public String toString() {
-		return "Address [ID=" + ID + ", country=" + country + ", locationName=" + locationName + ", locationAddress="
-				+ locationAddress + ", postAddress=" + postAddress + ", phoneNumber=" + phoneNumber + ", faxNumber="
-				+ faxNumber + ", mailAddress=" + mailAddress + "]";
 	}
 }
