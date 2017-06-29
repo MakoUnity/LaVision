@@ -1,5 +1,7 @@
 package com.MakoLab.Unity.LaVision.Application;
 
+import java.util.List;
+
 import com.MakoLab.Unity.LaVision.Models.Address;
 
 public interface AddressService {
@@ -7,4 +9,5 @@ public interface AddressService {
 	Address getActualCountryAddress();
 	Address changeActualCountryAddress(Address address);
 	Address getCountryAddress(String countryID);
+	List<Address> getAllCountryAddress();
 }

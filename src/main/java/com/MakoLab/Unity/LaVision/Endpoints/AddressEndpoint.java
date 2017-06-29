@@ -1,5 +1,7 @@
 package com.MakoLab.Unity.LaVision.Endpoints;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,5 +42,10 @@ public class AddressEndpoint {
 		Address address = new Address(addressAddRequeste);
 		
 		return new ResponseEntity<Address>(address, HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	public ResponseEntity<List<Address>> getAllCountryAddresses(){
+		return new ResponseEntity<List<Address>>(addressService.getAllCountryAddress(), HttpStatus.OK);
 	}
 }

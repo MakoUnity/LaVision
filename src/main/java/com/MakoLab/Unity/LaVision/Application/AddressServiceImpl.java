@@ -1,5 +1,7 @@
 package com.MakoLab.Unity.LaVision.Application;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,11 @@ public class AddressServiceImpl implements AddressService {
 	@Override
 	public Address getCountryAddress(String countryID) {
 		return addressRepository.findOne(countryID);
+	}
+
+	@Override
+	public List<Address> getAllCountryAddress() {
+		return addressRepository.findAll();
 	}
 
 }
