@@ -1,11 +1,13 @@
 package com.MakoLab.Unity.LaVision.Application;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.MakoLab.Unity.LaVision.Commons.DatabaseHelper;
 import com.MakoLab.Unity.LaVision.Models.AnimationConstants;
 import com.MakoLab.Unity.LaVision.Repository.AnimationConstantsRepository;
 
+@Service
 public class AnimationConstantsServiceImpl implements AnimationConstantsService {
 
 	@Autowired
