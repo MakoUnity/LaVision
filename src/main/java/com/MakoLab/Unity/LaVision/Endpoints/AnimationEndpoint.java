@@ -1,6 +1,8 @@
 package com.MakoLab.Unity.LaVision.Endpoints;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -58,8 +60,11 @@ public class AnimationEndpoint {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<ActualAnimation>> getAllAnimationObjects() {
-		return new ResponseEntity<List<ActualAnimation>>(animationService.getAllActualAnimation(), HttpStatus.OK);
+	public ResponseEntity<Map<String, List<ActualAnimation>>> getAllAnimationObjects() {
+		Map<String, List<ActualAnimation>> result = new HashMap<>();
+		result.put("animations", animationService.getAllActualAnimation());
+		
+		return new ResponseEntity<Map<String, List<ActualAnimation>>>(result, HttpStatus.OK);
 	}
 
 }
