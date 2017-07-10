@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.MakoLab.Unity.LaVision.Commons.DatabaseHelper;
 import com.MakoLab.Unity.LaVision.Models.Address;
 import com.MakoLab.Unity.LaVision.Models.AddressActual;
 import com.MakoLab.Unity.LaVision.Repository.ActualAddressRepository;
@@ -28,7 +29,7 @@ public class AddressServiceImpl implements AddressService {
 
 	@Override
 	public Address getActualCountryAddress() {
-		AddressActual addressActual = actualAddressRepository.findOne("666");
+		AddressActual addressActual = actualAddressRepository.findOne(DatabaseHelper.ACTUAL_ADDRESS_ID.getID());
 		
 		return addressRepository.findOne(addressActual.getCountryID());
 	}
@@ -50,5 +51,4 @@ public class AddressServiceImpl implements AddressService {
 	public List<Address> getAllCountryAddress() {
 		return addressRepository.findAll();
 	}
-
 }
