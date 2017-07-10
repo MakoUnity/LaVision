@@ -22,7 +22,6 @@ import com.MakoLab.Unity.LaVision.Models.AnimationConstants;
 @RestController
 @RequestMapping("animation")
 public class AnimationEndpoint {
-	private static final String ID = "ID";
 	
 	@Autowired
 	private AnimationConstantsService animationConstantsService;
@@ -49,12 +48,12 @@ public class AnimationEndpoint {
 
 	@RequestMapping(value = "/actual/{ID}", method = RequestMethod.PUT)
 	public ResponseEntity<ActualAnimation> changeActualAnimation(
-			@RequestBody ActualAnimation actualAnimation, @PathVariable(ID) String ID) {
+			@RequestBody ActualAnimation actualAnimation, @PathVariable("ID") String ID) {
 		return new ResponseEntity<ActualAnimation>(animationService.changeActualAnimation(actualAnimation, ID), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/actual/{ID}", method = RequestMethod.GET)
-	public ResponseEntity<ActualAnimation> getActualAnimation(@PathVariable(ID) String ID) {
+	public ResponseEntity<ActualAnimation> getActualAnimation(@PathVariable("ID") String ID) {
 		return new ResponseEntity<ActualAnimation>(animationService.getActualAnimation(ID), HttpStatus.OK);
 	}
 
