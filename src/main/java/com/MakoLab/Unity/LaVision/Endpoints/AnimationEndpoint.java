@@ -48,7 +48,7 @@ public class AnimationEndpoint {
 		return new ResponseEntity<ActualAnimation>(animationService.addActualAnimation(animationAddRequest), HttpStatus.CREATED);		
 	}
 
-	@RequestMapping(value = "/actual/{ID}", method = RequestMethod.OPTIONS)
+	@RequestMapping(value = "/actual/{ID}", method = RequestMethod.POST)
 	public ResponseEntity<ActualAnimation> changeActualAnimation(
 			@RequestBody ActualAnimation actualAnimation, @PathVariable("ID") String ID) {
 		return new ResponseEntity<ActualAnimation>(animationService.changeActualAnimation(actualAnimation, ID), HttpStatus.OK);
