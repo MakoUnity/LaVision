@@ -1,11 +1,20 @@
 package com.MakoLab.Unity.LaVision.Models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.MakoLab.Unity.LaVision.Commons.DatabaseHelper;
 
 @Document(collection = "animationcConstants")
 public class AnimationConstants {
+	@Id
+	private String ID;
 	private float maxValue;
 	private float minValue;
+	
+	public AnimationConstants(){
+		ID = DatabaseHelper.ANIMATION_CONSTANTS_ID.getID();
+	}
 
 	public float getMaxValue() {
 		return maxValue;

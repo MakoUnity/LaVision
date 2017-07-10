@@ -3,6 +3,8 @@ package com.MakoLab.Unity.LaVision.Models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.MakoLab.Unity.LaVision.Commons.DatabaseHelper;
+
 @Document(collection = "actualAddress")
 public class AddressActual {
 	@Id
@@ -15,7 +17,7 @@ public class AddressActual {
 	}
 	
 	public AddressActual(Address address) {
-		this.ID = "666";
+		this.ID = DatabaseHelper.ACTUAL_ADDRESS_ID.getID();
 		this.countryID = address.getID();
 		this.countryName = address.getCountry();
 	}
